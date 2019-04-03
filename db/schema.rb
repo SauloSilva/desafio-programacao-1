@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_210727) do
+ActiveRecord::Schema.define(version: 2019_04_03_223031) do
+
+  create_table "importers", force: :cascade do |t|
+    t.string "file"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "description"
@@ -26,15 +30,18 @@ ActiveRecord::Schema.define(version: 2019_04_03_210727) do
 
   create_table "purchasers", force: :cascade do |t|
     t.string "name"
+    t.index ["name"], name: "index_purchasers_on_name"
   end
 
   create_table "purchases", force: :cascade do |t|
     t.integer "merchant_id"
     t.integer "item_id"
     t.integer "purchaser_id"
-    t.integer "count"
+    t.integer "importer_id"
+    t.integer "quantity"
+    t.index ["importer_id"], name: "index_purchases_on_importer_id"
     t.index ["item_id"], name: "index_purchases_on_item_id"
-    t.index ["merchant_id", "item_id", "purchaser_id"], name: "index_purchases_on_merchant_id_and_item_id_and_purchaser_id"
+    t.index ["merchant_id", "item_id", "purchaser_id", "importer_id"], name: "index_purchases_on_reference_ids"
     t.index ["merchant_id"], name: "index_purchases_on_merchant_id"
     t.index ["purchaser_id"], name: "index_purchases_on_purchaser_id"
   end

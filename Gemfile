@@ -5,6 +5,9 @@ ruby '2.5.1'
 
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 gem 'sqlite3'
+
+gem 'carrierwave', '~> 1.0'
+
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -24,6 +27,8 @@ group :development, :test do
   gem 'rails-controller-testing', '1.0.4'
   gem 'database_cleaner', '1.7.0'
   gem 'fuubar', '2.3.2'
+  gem 'simplecov', '0.16.1'
+  gem 'rspec-simplecov', '0.2.2'
 end
 
 group :development do

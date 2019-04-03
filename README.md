@@ -33,7 +33,7 @@ Sua aplicação web não precisa:
 1. Ter uma aparência bonita.
 
 ## Avaliação
-Seu projeto será avaliado de acordo com os seguintes critérios. 
+Seu projeto será avaliado de acordo com os seguintes critérios.
 
 1. Sua aplicação preenche os requerimentos básicos?
 1. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?

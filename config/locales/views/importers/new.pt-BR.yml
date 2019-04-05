@@ -1,0 +1,7 @@
+---
+pt-BR:
+  importers:
+    new:
+      title: Nova importação
+      subtitle: Faça upload do seu arquivo, que atenda o formato descrito abaixo
+      back: Voltar!

@@ -17,6 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -29,6 +30,7 @@ group :development, :test do
   gem 'fuubar', '2.3.2'
   gem 'simplecov', '0.16.1'
   gem 'rspec-simplecov', '0.2.2'
+  gem 'bullet', '5.9.0'
 end
 
 group :development do

@@ -1,0 +1,22 @@
+# encoding: UTF-8
+---
+pt-BR:
+  models_and_attributes: &models_and_attributes
+    models:
+      importer: &importer
+        one: Importação
+        other: Importações
+    attributes:
+      importer: &importer
+        file: Arquivo
+        gross_value: Valor total
+
+  helpers:
+    label:
+      importer:
+        <<: *importer
+
+  activerecord:
+    <<: *models_and_attributes
+  activemodel:
+<<: *models_and_attributes

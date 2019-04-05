@@ -1,0 +1,9 @@
+<h1><%= t('.title') %></h1>
+<subtitle><%= t('.subtitle') %></subtitle>
+
+<%= simple_form_for @importer do |f| %>
+  <%= f.input :file %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to t('.back'), :back %>

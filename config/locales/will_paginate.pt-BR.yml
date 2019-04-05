@@ -1,0 +1,19 @@
+---
+pt-BR:
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Próxima &#8594;"
+    page_gap: "&hellip;"
+
+    page_entries_info:
+      single_page:
+        zero:  "%{model} não encontrado"
+        one:   "Exibindo 1 %{model}"
+        other: "Exibindo todos os %{count} %{model}"
+      single_page_html:
+        zero:  "%{model} não encontrado"
+        one:   "Exibindo <b>1</b> %{model}"
+        other: "Exibindo <b>todos os&nbsp;%{count}</b> %{model}"
+
+      multi_page: "Exibindo %{model} %{from} - %{to} de %{count} no total"
+      multi_page_html: "Exibindo %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> no total"

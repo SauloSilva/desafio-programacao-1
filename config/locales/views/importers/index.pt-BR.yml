@@ -1,0 +1,9 @@
+---
+pt-BR:
+  importers:
+    index:
+      title: 'Lista de vendas'
+      gross_value_sum: Total Bruto das importações
+      empty_list: A lista esta vazia
+      new: Importar um novo arquivo!
+      data_has_been_imported: Seus dados foram importados com sucesso!

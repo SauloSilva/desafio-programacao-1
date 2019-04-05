@@ -7,4 +7,14 @@ class Purchase < ApplicationRecord
 
   # Validations
   validates :quantity, presence: true
+
+  # Callbacks
+  before_validation :add_gross_value
+
+  private
+
+  def add_gross_value
+    return if item.blank?
+    self.gross_value = item.price.to_f * quantity.to_i
+  end
 end

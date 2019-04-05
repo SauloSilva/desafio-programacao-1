@@ -11,4 +11,18 @@ RSpec.describe Purchase, type: :model do
   describe 'Validations' do
     it { is_expected.to validate_presence_of(:quantity) }
   end
+
+  describe 'Callbacks' do
+    context 'before_validation :add_gross_value' do
+      it 'set gross_value' do
+        purchase = build(:purchase)
+        real_gross_value = purchase.item.price * purchase.quantity
+
+        expect do
+          purchase.save
+          purchase.reload
+        end.to change(purchase, :gross_value).from(0).to(real_gross_value)
+      end
+    end
+  end
 end

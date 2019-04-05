@@ -5,6 +5,7 @@ RSpec.describe Importers::Parser, type: :service do
     it 'calls builders' do
       importer = build_stubbed(:importer)
       allow(Importer).to receive(:find).with(importer.id).and_return(importer)
+      allow(importer).to receive(:done!)
 
       content = StringIO.new("0\nJoão Silva\tR$10 off R$20 of food\t10.0\t2\t987 Fake St\tBob's Pizza")
       allow(File).to receive(:open).and_yield(content)

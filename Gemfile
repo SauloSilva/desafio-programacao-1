@@ -17,11 +17,14 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'simple_form', '4.1.0'
+gem 'aasm', '5.0.2'
 gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec', '3.8.0'
+  gem 'rspec-rails', '3.8.2'
   gem 'factory_bot_rails', '5.0.1'
   gem 'faker', '1.9.3'
   gem 'shoulda-matchers', '4.0.1'

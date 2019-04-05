@@ -12,6 +12,8 @@ module Importers
         next if i == 0
         parse_line(line)
       end
+
+      importer.done!
     end
 
     private

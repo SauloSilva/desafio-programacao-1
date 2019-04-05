@@ -3,6 +3,7 @@ class CreateMerchants < ActiveRecord::Migration[5.2]
     create_table :merchants do |t|
       t.string :name, index: true
       t.string :address
+      t.timestamps
     end
   end
 end

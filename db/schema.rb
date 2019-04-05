@@ -14,22 +14,33 @@ ActiveRecord::Schema.define(version: 2019_04_03_223031) do
 
   create_table "importers", force: :cascade do |t|
     t.string "file"
+    t.decimal "gross_value", precision: 9, scale: 2, default: "0.0"
+    t.string "status"
+    t.datetime "imported_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
     t.string "description"
     t.decimal "price", precision: 9, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["description"], name: "index_items_on_description"
   end
 
   create_table "merchants", force: :cascade do |t|
     t.string "name"
     t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name"], name: "index_merchants_on_name"
   end
 
   create_table "purchasers", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name"], name: "index_purchasers_on_name"
   end
 
@@ -39,6 +50,9 @@ ActiveRecord::Schema.define(version: 2019_04_03_223031) do
     t.integer "purchaser_id"
     t.integer "importer_id"
     t.integer "quantity"
+    t.decimal "gross_value", precision: 9, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["importer_id"], name: "index_purchases_on_importer_id"
     t.index ["item_id"], name: "index_purchases_on_item_id"
     t.index ["merchant_id", "item_id", "purchaser_id", "importer_id"], name: "index_purchases_on_reference_ids"

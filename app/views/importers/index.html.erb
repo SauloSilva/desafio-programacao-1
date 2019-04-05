@@ -1,0 +1,33 @@
+<h1><%= t('.title') %></h1>
+
+<h2>
+  <%= t('.gross_value_sum') %>
+  <price><%= number_to_currency @importers.sum(:gross_value) %></price>
+</h2>
+
+<%= link_to t('.new'), new_importer_path %>
+
+<% if @importers.present? %>
+  <div class='flash-notice'></div>
+  <%= render @importers %>
+  <%= will_paginate @importers %>
+<% else %>
+  <span class='empty-list'><%= t('.empty_list') %></span>
+<% end %>
+
+
+<script>
+  poll(
+      function() {
+        var element = document.getElementById('importer-status-importing');
+        return element === null;
+      },
+      function() {
+        location.reload();
+      }, function() {
+        var flashMessage = document.getElementsByClassName('flash-notice');
+        flashMessage[0].innerHTML = "<%= t('.data_has_been_imported') %>";
+      }
+  );
+</script>
+

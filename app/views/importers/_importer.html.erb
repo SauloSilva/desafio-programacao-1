@@ -1,0 +1,26 @@
+<div class='importer-header' id="importer-status-<%= importer.status %>">
+  <h2><%= t('.title', id: importer.id) %></h2>
+  <h3>
+    <%= t('.gross_value') %>
+    <price><%= number_to_currency importer.gross_value %></price>
+  </h3>
+  <%= link_to t('.see_file'), importer.file.url, target: '_blank' %>
+</div>
+
+<% if importer.imported? %>
+  <table class='importer-purchases-table'>
+    <tr>
+      <th><%= t('.table.header.purchaser_name') %></th>
+      <th><%= t('.table.header.item_description') %></th>
+      <th><%= t('.table.header.item_price') %></th>
+      <th><%= t('.table.header.purchase_count') %></th>
+      <th><%= t('.table.header.purchase_gross_value') %></th>
+      <th><%= t('.table.header.merchant_name') %></th>
+      <th><%= t('.table.header.merchant_address') %></th>
+    </tr>
+
+    <%= render importer.purchases %>
+  </table>
+<% else %>
+  <span><%= t('.importing') %></span>
+<% end %>

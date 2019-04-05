@@ -1,0 +1,18 @@
+---
+pt-BR:
+  importers:
+    importer:
+      title: Importação Nº %{id}
+      gross_value: Total bruto da importação
+      see_file: Ver arquivo que foi importado!
+      importing: Aguarde! O arquivo esta sendo processado, dentro de alguns instante a tela será atualizada!
+
+      table:
+        header:
+          purchaser_name: Nome do Comprador
+          item_description: Descrição do item
+          item_price: Preço do item
+          purchase_count: Quantidade
+          purchase_gross_value: Valor total
+          merchant_name: Nome do vendedor
+          merchant_address: Endereço do vendedor

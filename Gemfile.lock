@@ -51,6 +51,9 @@ GEM
     bootsnap (1.4.2)
       msgpack (~> 1.0)
     builder (3.2.3)
+    bullet (5.9.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.0.1)
     capybara (3.16.1)
       addressable

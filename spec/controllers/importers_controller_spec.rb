@@ -6,6 +6,7 @@ RSpec.describe ImportersController, type: :controller do
       importer = create(:importer)
       get :index
       expect(assigns(:importers)).to eq([importer])
+      expect(assigns(:impoters_gross_value_sum)).to be_kind_of(Float)
     end
 
     it 'renders the :index view' do

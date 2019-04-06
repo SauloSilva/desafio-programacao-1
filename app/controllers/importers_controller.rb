@@ -1,6 +1,7 @@
 class ImportersController < ApplicationController
   def index
     @importers = Importer.includes(purchases: [:purchaser, :item, :purchaser, :merchant]).all.distinct.paginate(page: params[:page]).order(created_at: :desc)
+    @impoters_gross_value_sum = Importer.all.sum(:gross_value).to_f
   end
 
   def new

@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_04_03_223031) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "importers", force: :cascade do |t|
     t.string "file"
     t.decimal "gross_value", precision: 9, scale: 2, default: "0.0"
@@ -45,10 +48,10 @@ ActiveRecord::Schema.define(version: 2019_04_03_223031) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.integer "merchant_id"
-    t.integer "item_id"
-    t.integer "purchaser_id"
-    t.integer "importer_id"
+    t.bigint "merchant_id"
+    t.bigint "item_id"
+    t.bigint "purchaser_id"
+    t.bigint "importer_id"
     t.integer "quantity"
     t.decimal "gross_value", precision: 9, scale: 2, default: "0.0"
     t.datetime "created_at", null: false

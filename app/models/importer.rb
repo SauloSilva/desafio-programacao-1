@@ -6,7 +6,7 @@ class Importer < ApplicationRecord
   has_many :purchases, inverse_of: :importer, dependent: :restrict_with_error
 
   # Validations
-  validates :file, presence: true
+  validates :file, presence: true, on: :create
 
   # Callbacks
   after_create :send_file_to_parse, on: :create

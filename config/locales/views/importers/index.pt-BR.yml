@@ -2,8 +2,8 @@
 pt-BR:
   importers:
     index:
-      title: 'Lista de vendas'
+      title: 'Lista de importações da sua loja'
       gross_value_sum: Total Bruto das importações
-      empty_list: A lista esta vazia
+      empty_list: Não existe nenhuma importação processada, use o link acima para fazer a primeira importação!!!
       new: Importar um novo arquivo!
-      data_has_been_imported: Seus dados foram importados com sucesso!
+      data_has_been_imported: Todas importações foram processadas com sucesso!

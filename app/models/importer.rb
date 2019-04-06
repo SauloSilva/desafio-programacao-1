@@ -9,7 +9,7 @@ class Importer < ApplicationRecord
   validates :file, presence: true
 
   # Callbacks
-  after_create :send_file_to_parse
+  after_create :send_file_to_parse, on: :create
 
   # State machine
   aasm(:status) do

@@ -1,26 +1,38 @@
 <div class='importer-header' id="importer-status-<%= importer.status %>">
-  <h2><%= t('.title', id: importer.id) %></h2>
+  <h2>
+    <b>
+      <i class="fas fa-cloud"></i>
+      <%= t('.title', id: importer.id) %>
+    </b>
+  </h2>
   <h3>
     <%= t('.gross_value') %>
     <price><%= number_to_currency importer.gross_value %></price>
+    </br>
+    </br>
+    <%= link_to importer.file.url, target: '_blank' do %>
+      <i class="fas fa-file-import"></i>
+      <%= t('.see_file') %>
+    <% end %>
   </h3>
-  <%= link_to t('.see_file'), importer.file.url, target: '_blank' %>
 </div>
 
 <% if importer.imported? %>
   <table class='importer-purchases-table'>
     <tr>
-      <th><%= t('.table.header.purchaser_name') %></th>
-      <th><%= t('.table.header.item_description') %></th>
-      <th><%= t('.table.header.item_price') %></th>
-      <th><%= t('.table.header.purchase_count') %></th>
-      <th><%= t('.table.header.purchase_gross_value') %></th>
-      <th><%= t('.table.header.merchant_name') %></th>
-      <th><%= t('.table.header.merchant_address') %></th>
+      <th class='th--lg'><i class="fas fa-user-friends"></i><%= t('.table.header.purchaser_name') %></th>
+      <th class='th--lg'><i class="fas fa-info-circle"></i><%= t('.table.header.item_description') %></th>
+      <th class='th--sm'><i class="fas fa-tag"></i><%= t('.table.header.item_price') %></th>
+      <th class='th--sm'><i class="fas fa-list-ol"></i><%= t('.table.header.purchase_count') %></th>
+      <th class='th--md'><i class="fas fa-calculator"></i><%= t('.table.header.purchase_gross_value') %></th>
+      <th class='th--lg'><i class="fas fa-building"></i><%= t('.table.header.merchant_name') %></th>
+      <th class='th--lg'><i class="fas fa-map-marked-alt"></i><%= t('.table.header.merchant_address') %></th>
     </tr>
 
     <%= render importer.purchases %>
   </table>
 <% else %>
-  <span><%= t('.importing') %></span>
+  <div class='flash-notice-wrapper'></div>
+    <div class='flash-notice'><%= t('.importing') %></div>
+  </div>
 <% end %>

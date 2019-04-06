@@ -20,6 +20,6 @@ class ImportersController < ApplicationController
   private
 
   def importer_params
-    params.require(:importer).permit(:file)
+    params.fetch(:importer, {}).permit(:file)
   end
 end

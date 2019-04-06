@@ -1,33 +1,30 @@
-<h1><%= t('.title') %></h1>
+<h1>
+  <i class="fas fa-store"></i>
+  <%= t('.title') %>
+</h1>
 
 <h2>
   <%= t('.gross_value_sum') %>
   <price><%= number_to_currency @importers.sum(:gross_value) %></price>
 </h2>
 
-<%= link_to t('.new'), new_importer_path %>
+<%= link_to t('.new'), new_importer_path, class: 'button' %>
 
 <% if @importers.present? %>
-  <div class='flash-notice'></div>
+  <div class='flash-notice-wrapper'></div>
   <%= render @importers %>
   <%= will_paginate @importers %>
 <% else %>
-  <span class='empty-list'><%= t('.empty_list') %></span>
+  <div class='flash-notice-wrapper'></div>
+    <div class='flash-notice'><%= t('.empty_list') %></div>
+  </div>
 <% end %>
-
 
 <script>
   poll(
-      function() {
-        var element = document.getElementById('importer-status-importing');
-        return element === null;
-      },
-      function() {
-        location.reload();
-      }, function() {
-        var flashMessage = document.getElementsByClassName('flash-notice');
-        flashMessage[0].innerHTML = "<%= t('.data_has_been_imported') %>";
-      }
+      function() { return document.getElementById('importer-status-importing') === null; },
+      function() { location.reload(); },
+      function() {}
   );
 </script>
 

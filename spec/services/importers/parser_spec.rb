@@ -7,8 +7,9 @@ RSpec.describe Importers::Parser, type: :service do
       allow(Importer).to receive(:find).with(importer.id).and_return(importer)
       allow(importer).to receive(:done!)
 
+      parser_instance = described_class.new(importer.id)
       content = StringIO.new("0\nJoão Silva\tR$10 off R$20 of food\t10.0\t2\t987 Fake St\tBob's Pizza")
-      allow(File).to receive(:open).and_yield(content)
+      allow_any_instance_of(Kernel).to receive_message_chain(:open, :read).and_return(content)
 
       instance_of_purchaser_builder = double
       allow(PurchaserBuilder).to receive(:new).with(name: "João Silva").and_return(instance_of_purchaser_builder)
@@ -26,7 +27,7 @@ RSpec.describe Importers::Parser, type: :service do
       allow(PurchaseBuilder).to receive(:new).with(quantity: '2', item: Item, purchaser: Purchaser, merchant: Merchant, importer: importer).and_return(instance_of_purchase_builder)
       allow(instance_of_purchase_builder).to receive(:build)
 
-      described_class.new(importer.id).parser
+      parser_instance.parser
 
       expect(PurchaserBuilder).to have_received(:new).with(name: "João Silva")
       expect(instance_of_purchaser_builder).to have_received(:build)

@@ -55,10 +55,8 @@ module Importers
     end
 
     def read_lines
-      File.open(importer.file.path, "r") do |f|
-        f.each_line.with_index do |line, i|
-          yield line, i
-        end
+      open("#{ ENV['CANONICAL_URL'] || 'http://localhost:3000' }#{ importer.file.url }").read.each_line.with_index do |line, i|
+        yield line, i
       end
     end
   end

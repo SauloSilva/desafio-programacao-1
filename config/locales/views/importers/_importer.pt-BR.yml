@@ -4,7 +4,6 @@ pt-BR:
     importer:
       title: Importação Nº %{id}
       gross_value: Total bruto da importação
-      see_file: Ver arquivo que foi importado!
       importing: Aguarde! O arquivo esta sendo processado, dentro de alguns instante a tela será atualizada!
 
       table:

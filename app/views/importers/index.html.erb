@@ -10,7 +10,7 @@
 
 <%= link_to t('.new'), new_importer_path, class: 'button' %>
 
-<% if @importers.present? %>
+<% if @importers.any? %>
   <div class='flash-notice-wrapper'></div>
   <%= render @importers %>
   <%= will_paginate @importers %>

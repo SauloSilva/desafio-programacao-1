@@ -14,19 +14,25 @@
 </div>
 
 <% if importer.imported? %>
-  <table class='importer-purchases-table'>
-    <tr>
-      <th class='th--lg'><i class="fas fa-user-friends"></i><%= t('.table.header.purchaser_name') %></th>
-      <th class='th--lg'><i class="fas fa-info-circle"></i><%= t('.table.header.item_description') %></th>
-      <th class='th--sm'><i class="fas fa-tag"></i><%= t('.table.header.item_price') %></th>
-      <th class='th--sm'><i class="fas fa-list-ol"></i><%= t('.table.header.purchase_count') %></th>
-      <th class='th--md'><i class="fas fa-calculator"></i><%= t('.table.header.purchase_gross_value') %></th>
-      <th class='th--lg'><i class="fas fa-building"></i><%= t('.table.header.merchant_name') %></th>
-      <th class='th--lg'><i class="fas fa-map-marked-alt"></i><%= t('.table.header.merchant_address') %></th>
-    </tr>
+  <% if importer.purchases.any? %>
+    <table class='importer-purchases-table'>
+      <tr>
+        <th class='th--lg'><i class="fas fa-user-friends"></i><%= t('.table.header.purchaser_name') %></th>
+        <th class='th--lg'><i class="fas fa-info-circle"></i><%= t('.table.header.item_description') %></th>
+        <th class='th--sm'><i class="fas fa-tag"></i><%= t('.table.header.item_price') %></th>
+        <th class='th--sm'><i class="fas fa-list-ol"></i><%= t('.table.header.purchase_count') %></th>
+        <th class='th--md'><i class="fas fa-calculator"></i><%= t('.table.header.purchase_gross_value') %></th>
+        <th class='th--lg'><i class="fas fa-building"></i><%= t('.table.header.merchant_name') %></th>
+        <th class='th--lg'><i class="fas fa-map-marked-alt"></i><%= t('.table.header.merchant_address') %></th>
+      </tr>
 
-    <%= render importer.purchases %>
-  </table>
+      <%= render importer.purchases %>
+    </table>
+  <% else %>
+    <div class='flash-notice-wrapper'></div>
+      <div class='flash-notice'><%= t('.purchases_empty') %></div>
+    </div>
+  <% end %>
 <% else %>
   <div class='flash-notice-wrapper'></div>
     <div class='flash-notice'><%= t('.importing') %></div>

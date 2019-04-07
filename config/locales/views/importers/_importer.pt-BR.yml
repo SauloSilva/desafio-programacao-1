@@ -5,6 +5,7 @@ pt-BR:
       title: Importação Nº %{id}
       gross_value: Total bruto da importação
       importing: Aguarde! O arquivo esta sendo processado, dentro de alguns instante a tela será atualizada!
+      purchases_empty: Não houve nenhuma venda válida para ser importada!
 
       table:
         header:

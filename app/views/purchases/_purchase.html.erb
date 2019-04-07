@@ -1,9 +1,9 @@
 <tr>
-  <td><%= purchase.purchaser.name %></td>
-  <td><%= purchase.item.description %></td>
-  <td><%= number_to_currency purchase.item.price %></td>
+  <td><%= purchase.try(:purchaser).try(:name) %></td>
+  <td><%= purchase.try(:item).try(:description) %></td>
+  <td><%= number_to_currency purchase.try(:item).try(:price) %></td>
   <td><%= purchase.quantity %></td>
   <td><%= number_to_currency purchase.gross_value %></td>
-  <td><%= purchase.merchant.name %></td>
-  <td><%= purchase.merchant.address %></td>
+  <td><%= purchase.try(:merchant).try(:name) %></td>
+  <td><%= purchase.try(:merchant).try(:address) %></td>
 </tr>

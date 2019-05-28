@@ -9,10 +9,10 @@ pt-BR:
 
       table:
         header:
-          purchaser_name: Comprador
+          purchaser_name: Comprado
           item_description: Descrição
-          item_price: Preço
+          item_price: Preco
           purchase_count: Qtde.
           purchase_gross_value: Total
-          merchant_name: Nome vendedor
-          merchant_address: Endereço vendedor
+          merchant_name: Nome vendendor
+          merchant_address: Endereços vendedor

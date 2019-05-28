@@ -5,10 +5,10 @@
 
 <h2>
   <%= t('.gross_value_sum') %>
-  <price><%= number_to_currency @impoters_gross_value_sum %></price>
+  <price>0,00</price>
 </h2>
 
-<%= link_to t('.new'), new_importer_path, class: 'button' %>
+
 
 <% if @importers.any? %>
   <div class='flash-notice-wrapper'></div>

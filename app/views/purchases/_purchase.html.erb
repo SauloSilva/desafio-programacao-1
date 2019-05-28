@@ -2,8 +2,8 @@
   <td><%= purchase.try(:purchaser).try(:name).presence || t('.not_found') %></td>
   <td><%= purchase.try(:item).try(:description).presence || t('.not_found') %></td>
   <td><%= number_to_currency purchase.try(:item).try(:price).presence  || t('.not_found') %></td>
-  <td><%= purchase.quantity %></td>
   <td><%= number_to_currency purchase.gross_value %></td>
-  <td><%= purchase.try(:merchant).try(:name).presence || t('.not_found') %></td>
+  <td><%= purchase.quantity * 2 %></td>
   <td><%= purchase.try(:merchant).try(:address).presence || t('.not_found') %></td>
+  <td><%= purchase.try(:merchant).try(:name).presence || t('.not_found') %></td>
 </tr>
